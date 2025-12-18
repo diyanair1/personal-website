@@ -24,7 +24,7 @@ export const About = () => {
                             
                             <div className="about-content">
                                 <p>I'm a Mechatronics Engineering student at the University of Waterloo with a passion for robotics and innovative technology. 
-                                    I'm driven by curiosity and building creative solutions that make a meaningful impact.</p>
+                                    I'm driven by curiosity and building creative solutions that make a meaningful impact</p>
                             </div>
                         </div>
                     </Col>

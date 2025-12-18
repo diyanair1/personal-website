@@ -13,7 +13,7 @@ import keychain from "../assets/img/keychain.png";
 export const Projects = () => {
     const [activeFilter, setActiveFilter] = useState("All");
     const [expandedProject, setExpandedProject] = useState(null);
-    const [sectionRef, isVisible] = useScrollAnimation({ threshold: 0.2 });
+    const [sectionRef, isVisible] = useScrollAnimation({ threshold: 0.1 });
 
     // Handle ESC key to close expanded view
     useEffect(() => {
