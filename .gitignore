@@ -22,7 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-src/assets/img/*.mp4
+
+# Video files
+*.mp4
 
 # Resume files
 *.pdf

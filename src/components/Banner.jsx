@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import video1 from '../assets/img/banner.mp4';
+
+// Use direct URL path for video hosted on Bluehost
+const videoUrl = '/assets/img/banner.mp4';
 
 export const Banner = () => {
     const fullName = "Diya Nair";
@@ -27,7 +29,7 @@ export const Banner = () => {
     return (
         <section className="banner" id="home">
             <video className="banner-video" autoPlay loop muted playsInline>
-                <source src={video1} type="video/mp4" />
+                <source src={videoUrl} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
             <div className="banner-overlay"></div>
