@@ -798,7 +798,7 @@ input:focus, textarea:focus, select:focus {
 
 /* Content section */
 .about-content {
-  max-width: 850px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
