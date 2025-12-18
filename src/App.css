@@ -972,7 +972,6 @@ input:focus, textarea:focus, select:focus {
   margin-bottom: 30px;
   opacity: 0;
   transform: translateY(30px);
-  cursor: pointer;
 }
 
 /* Animate project cards when parent has animate-in class */
@@ -1088,12 +1087,25 @@ input:focus, textarea:focus, select:focus {
     inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
+/* Project Actions Container */
+.project-actions {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.project-actions .github-link {
+  margin-right: auto;
+}
+
 /* GitHub Link */
 .github-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 24px;
+  padding: 10px 18px;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -1102,7 +1114,7 @@ input:focus, textarea:focus, select:focus {
   color: #fff;
   text-decoration: none;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   transition: all 0.3s ease-in-out;
   width: fit-content;
   letter-spacing: 0.5px;
@@ -1133,7 +1145,7 @@ input:focus, textarea:focus, select:focus {
   background: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.4);
   color: #fff;
-  transform: translateX(5px);
+  transform: translateY(-2px);
   box-shadow: 
     0 6px 24px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
@@ -1141,8 +1153,21 @@ input:focus, textarea:focus, select:focus {
 }
 
 .github-link svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
+}
+
+/* Learn More Button */
+.learn-more-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 15.5px;
+  cursor: pointer;
+}
+
+.learn-more-btn:hover {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Project Modal Overlay */
