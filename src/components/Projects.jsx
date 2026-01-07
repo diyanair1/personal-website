@@ -9,6 +9,7 @@ import audioPlayerImg from "../assets/img/audio_player.png";
 import opampImg from "../assets/img/opamp.png";
 import opamp2Img from "../assets/img/opamp2.png";
 import keychain from "../assets/img/keychain.png";
+import stockPortfolioImg from "../assets/img/momentum.png";
 
 export const Projects = () => {
     const [activeFilter, setActiveFilter] = useState("All");
@@ -102,11 +103,27 @@ export const Projects = () => {
                 "Utilized laser cutting for intricate patterns and fine details",
                 "Completed assembly and finishing to create a functional and aesthetic keychain"
             ]
+        },
+        8: {
+            fullTechStack: ["Python", "React", "PostgreSQL", "OpenAI", "Proxmox", "Wireguard", "Dell R730 Server"],
+            detailedDescription: [
+                "Developed a portfolio management system designed to select, track, and optimize a small set of high-performing stocks using AI-driven strategies",
+                "Leveraged OpenAI for AI-based selection, and developed a live trading dashboard in React with PostgreSQL backend",
+                "The platform automates stock selection, portfolio adjustments, performance tracking, and AI decisions"
+            ]
         }
     };
 
     const projectData = [
         // Software Category
+        {
+            id: 8,
+            title: "Stock Portfolio Management Tool",
+            category: "Software",
+            description: "Portfolio management system that automates stock selection, tracking, and optimization using OpenAI",
+            techStack: ["Python", "React", "PostgreSQL", "OpenAI"],
+            image: stockPortfolioImg
+        },
         {
             id: 1,
             title: "LLM Chatbot",
