@@ -105,7 +105,7 @@ export const Projects = () => {
             ]
         },
         8: {
-            fullTechStack: ["Python", "React", "PostgreSQL", "OpenAI", "Proxmox", "Wireguard", "Dell R730 Server"],
+            fullTechStack: ["Python", "React", "PostgreSQL", "Node + Express", "OpenAI", "Proxmox", "Wireguard", "Dell R730 Server"],
             detailedDescription: [
                 "Developed a portfolio management system designed to select, track, and optimize a small set of high-performing stocks using AI-driven strategies",
                 "Leveraged OpenAI for AI-based selection, and developed a live trading dashboard in React with PostgreSQL backend",
