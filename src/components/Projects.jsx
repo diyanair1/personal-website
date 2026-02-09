@@ -10,6 +10,22 @@ import opampImg from "../assets/img/opamp.png";
 import opamp2Img from "../assets/img/opamp2.png";
 import keychain from "../assets/img/keychain.png";
 import stockPortfolioImg from "../assets/img/momentum.png";
+import ura1Img from "../assets/img/ura1.png";
+import ura2Img from "../assets/img/ura2.png";
+
+// Component for alternating images in project cards
+const AlternatingImage = ({ images, alt }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % images.length);
+        }, 6000); // Switch every 6 seconds
+        return () => clearInterval(interval);
+    }, [images.length]);
+
+    return <img src={images[currentIndex]} alt={`${alt} - Image ${currentIndex + 1}`} className="project-img" />;
+};
 
 export const Projects = () => {
     const [activeFilter, setActiveFilter] = useState("All");
@@ -40,6 +56,15 @@ export const Projects = () => {
     }, [expandedProject]);
 
     const projectDetails = {
+        9: {
+            fullTechStack: ["ROS 2", "Python", "C++", "Raspberry Pi", "Ubuntu", "Localization", "UAV"],
+            detailedDescription: [
+                "Working as an undergraduate research assistant at Robohub on instrumentation and control of mobile robotic networks",
+                "Learning ROS 2 for localization, coordination, and control of wheeled robots and UAVs",
+                "Gaining experience in real-time system integration, state feedback, and control loops. Integrating sensor data for localization and publishing state information over ROS topics",
+                "Implementing control logic that generates motion commands for wheeled robots"
+            ]
+        },
         1: {
             fullTechStack: ["Python", "LangChain", "OpenAI (ChatGPT API)", "Beautiful Soup", "Streamlit", "Chroma Vector Store"],
             detailedDescription: [
@@ -115,6 +140,16 @@ export const Projects = () => {
     };
 
     const projectData = [
+        // Hardware & Robotics Category
+        {
+            id: 9,
+            title: "Mobile Robotic Networks Research",
+            category: "Hardware",
+            description: "Undergraduate research on instrumentation and control of mobile robotic networks using ROS 2",
+            techStack: ["ROS 2", "Python", "Control Systems", "Raspberry Pi", "Sensor Integration"],
+            images: [ura1Img, ura2Img],
+            image: ura1Img
+        },
         // Software Category
         {
             id: 8,
@@ -151,7 +186,6 @@ export const Projects = () => {
             githubLink: "https://github.com/diyanair1/LibraryManager",
             image: libraryManagerImg
         },
-        // Hardware & Robotics Category
         {
             id: 4,
             title: "MediBot",
@@ -242,7 +276,11 @@ export const Projects = () => {
                                     <Col key={project.id} xs={12} md={6} lg={4}>
                                         <div className="project-card glass-card-subtle">
                                             <div className="project-img-wrapper">
-                                                <img src={project.image} alt={project.title} className="project-img" />
+                                                {project.images && project.images.length > 1 ? (
+                                                    <AlternatingImage images={project.images} alt={project.title} />
+                                                ) : (
+                                                    <img src={project.image} alt={project.title} className="project-img" />
+                                                )}
                                             </div>
                                             <div className="project-content">
                                                 <h3>{project.title}</h3>
@@ -301,7 +339,20 @@ export const Projects = () => {
                         
                         <div className="modal-body">
                             <div className="modal-image-section">
-                                <img src={expandedProject.image} alt={expandedProject.title} />
+                                {expandedProject.images && expandedProject.images.length > 1 ? (
+                                    <>
+                                        {expandedProject.images.map((img, index) => (
+                                            <img 
+                                                key={index}
+                                                src={img} 
+                                                alt={`${expandedProject.title} - Image ${index + 1}`} 
+                                                className="modal-multiple-image"
+                                            />
+                                        ))}
+                                    </>
+                                ) : (
+                                    <img src={expandedProject.image} alt={expandedProject.title} />
+                                )}
                                 {expandedProject.id === 6 && (
                                     <img src={opamp2Img} alt={`${expandedProject.title} - Circuit Design`} className="modal-second-image" />
                                 )}
