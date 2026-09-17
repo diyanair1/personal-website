@@ -23,7 +23,7 @@ export const Banner = () => {
 
     const handleResumeClick = () => {
         // Open Google Drive resume link in new tab
-        window.open('https://drive.google.com/file/d/10MUhB7AGdA4Lx6TMYQlgy_XTRdx6PuoC/view?usp=sharing', '_blank');
+        window.open('https://drive.google.com/drive/u/0/folders/1-cdQ8mQ8qFYS4-t4iwsFmLjf4VTgi2aO', '_blank');
     };
 
     return (
