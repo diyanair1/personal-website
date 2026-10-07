@@ -9,6 +9,9 @@ import audioPlayerImg from "../assets/img/audio_player.png";
 import opampImg from "../assets/img/opamp.png";
 import opamp2Img from "../assets/img/opamp2.png";
 import keychain from "../assets/img/keychain.png";
+import ladderLogicImg from "../assets/img/ladderlogic.png";
+import stateDiagramImg from "../assets/img/statediagram.png";
+import d10BoardImg from "../assets/img/d10board.png";
 import stockPortfolioImg from "../assets/img/momentum.png";
 import ura1Img from "../assets/img/ura1.png";
 import ura2Img from "../assets/img/ura2.png";
@@ -136,6 +139,32 @@ export const Projects = () => {
                 "Leveraged OpenAI for AI-based selection, and developed a live trading dashboard in React with PostgreSQL backend",
                 "The platform automates stock selection, portfolio adjustments, performance tracking, and AI decisions"
             ]
+        },
+        10: {
+            label: "MTE 262 coursework",
+            fullTechStack: ["VHDL", "FPGA", "Ladder Logic", "State Machines", "Siemens PLC", "Quartus", "TIA Portal"],
+            overview: [
+                "The FPGA work starts with combinational logic and moves into sequential design through decoders, counters, and a state machine on the Intel MAX 10 DE10-Lite board.",
+                "The PLC work carries the same digital-control ideas into ladder logic, timing, and sensor-driven motor behavior on a Siemens S7-1200 system.",
+                "Together, the project connects core logic design with practical industrial automation from hardware implementation to live debugging."
+            ],
+            sections: {
+                FPGA: [
+                    "Built a 4-input AND and 3-input XOR from basic gates using components and signals",
+                    "Created seven-segment decoders for octal and hex using with-select",
+                    "Drove a 3-bit counter from push buttons and displayed the result on LEDs",
+                    "Implemented the 1 -> 3 -> 6 -> 7 sequence as a state machine using a process and case statement",
+                    "Derived truth tables and simplified the logic with K-maps before implementation"
+                ],
+                PLC: [
+                    "Set up hardware config, PROFINET networking, and I/O tagging for a KP8 key panel",
+                    "Wrote ladder logic with latches, TON/TOF timers, and a counter",
+                    "Built a conveyor-belt controller as a finite state machine for button-controlled bidirectional jogging of a stepper motor",
+                    "Handled color-sensor reaction with a timed reverse jog on red and a halt on green until the object is removed and a button is pressed",
+                    "Applied TON/TOF debouncing on buttons and the color sensor",
+                    "Used TIA Portal's online monitor to test the logic with the motor disabled before live runs"
+                ]
+            }
         }
     };
 
@@ -149,6 +178,15 @@ export const Projects = () => {
             techStack: ["ROS 2", "Python", "Control Systems", "Raspberry Pi", "Sensor Integration"],
             images: [ura1Img, ura2Img],
             image: ura1Img
+        },
+        {
+            id: 10,
+            title: "FPGA & PLC Digital Logic Systems",
+            category: "Hardware",
+            description: "Coursework spanning VHDL FPGA design in Quartus and PLC ladder logic in TIA Portal, from basic gates and state machines to sensor-driven motor control.",
+            techStack: ["VHDL", "FPGA", "Ladder Logic", "State Machines", "Siemens PLC", "Quartus", "TIA Portal"],
+            images: [stateDiagramImg, ladderLogicImg, d10BoardImg],
+            image: stateDiagramImg
         },
         // Software Category
         {
@@ -359,22 +397,50 @@ export const Projects = () => {
                             </div>
                             
                             <div className="modal-text-section">
+                                {projectDetails[expandedProject.id]?.label && (
+                                    <span className="modal-project-label">{projectDetails[expandedProject.id].label}</span>
+                                )}
+
                                 <h2>{expandedProject.title}</h2>
-                                
+
                                 <div className="modal-tech-stack">
                                     {projectDetails[expandedProject.id]?.fullTechStack.map((tech, index) => (
                                         <span key={index} className="modal-tech-tag">{tech}</span>
                                     ))}
                                 </div>
-                                
-                                <div className="modal-description">
-                                    <h3>Project Details</h3>
-                                    <ul>
-                                        {projectDetails[expandedProject.id]?.detailedDescription.map((point, index) => (
-                                            <li key={index}>{point}</li>
+
+                                {projectDetails[expandedProject.id]?.overview && (
+                                    <div className="modal-overview">
+                                        <h3>Overview</h3>
+                                        {projectDetails[expandedProject.id].overview.map((paragraph, index) => (
+                                            <p key={index}>{paragraph}</p>
                                         ))}
-                                    </ul>
-                                </div>
+                                    </div>
+                                )}
+
+                                {projectDetails[expandedProject.id]?.sections ? (
+                                    <div className="modal-detail-sections">
+                                        {Object.entries(projectDetails[expandedProject.id].sections).map(([sectionTitle, bullets]) => (
+                                            <section key={sectionTitle} className="modal-detail-section">
+                                                <h3>{sectionTitle}</h3>
+                                                <ul>
+                                                    {bullets.map((point, index) => (
+                                                        <li key={index}>{point}</li>
+                                                    ))}
+                                                </ul>
+                                            </section>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <div className="modal-description">
+                                        <h3>Project Details</h3>
+                                        <ul>
+                                            {projectDetails[expandedProject.id]?.detailedDescription.map((point, index) => (
+                                                <li key={index}>{point}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>

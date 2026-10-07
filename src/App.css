@@ -1263,6 +1263,21 @@ input:focus, textarea:focus, select:focus {
   min-width: 0;
 }
 
+.modal-project-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  margin-bottom: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
 .modal-text-section h2 {
   font-size: 28px;
   font-weight: 700;
@@ -1305,6 +1320,40 @@ input:focus, textarea:focus, select:focus {
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
+.modal-overview {
+  margin-bottom: 26px;
+}
+
+.modal-overview p {
+  color: #B8B8B8;
+  font-size: 15px;
+  line-height: 1.7;
+  letter-spacing: 0.3px;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.modal-detail-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.modal-detail-section {
+  padding: 18px 18px 8px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-detail-section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 14px;
+  font-family: 'SF Pro Bold', sans-serif;
+}
+
 .modal-description h3 {
   font-size: 18px;
   font-weight: 600;
@@ -1330,6 +1379,30 @@ input:focus, textarea:focus, select:focus {
 }
 
 .modal-description li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 700;
+}
+
+.modal-detail-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-detail-section li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  color: #B8B8B8;
+  font-size: 15px;
+  line-height: 1.7;
+  letter-spacing: 0.3px;
+}
+
+.modal-detail-section li::before {
   content: "▸";
   position: absolute;
   left: 0;
@@ -1388,12 +1461,31 @@ input:focus, textarea:focus, select:focus {
     padding: 5px 10px;
   }
 
+  .modal-detail-sections {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .modal-detail-section {
+    padding: 16px 16px 6px;
+  }
+
   .modal-description h3 {
     font-size: 16px;
     margin-bottom: 14px;
   }
 
   .modal-description li {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .modal-detail-section h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .modal-detail-section li {
     font-size: 14px;
     margin-bottom: 10px;
   }
