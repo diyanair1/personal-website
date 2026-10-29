@@ -24,7 +24,7 @@ dist-ssr
 *.sw?
 
 # Video files
-.mp4
+*.mp4
 
 # Resume files
 *.pdf
